@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>藍風暴波流日｜愛共鳴．藍手之光</title>
+<meta name="description" content="13月亮曆藍風暴波（KIN 79–91）每日流日：當日印記、藍手語錄、印記提醒與小練習。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="藍風暴波流日｜愛共鳴．藍手之光">
+<meta property="og:description" content="在風暴中心站穩自己，再讓風帶你躍起。">
+<meta property="og:image" content="https://arthur-lovebluehand.github.io/daily/img/kin79.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Iansui&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday, calm and warm: a reader's home for the daily 13月亮曆 posts
+   IDEA a hand-bound wave journal: one 13-day 波符 laid out like a calendar strip, each day a page
+   PICTURE the 13-day strip itself — thirteen 意向圖 tiles grouped into 啟動週／擴展週／收成週
+   COLOUR clear sky-blue ground, navy ink, logo accents red / dark teal / teal; deep night navy in dark
+   TYPE LXGW WenKai TC (brush-like 楷) for titles + Iansui (粉圓-based) for text
+   LAYOUT top: brand bar, wave title + strip; below: chosen day as image beside its text; phone stacks */
+:root{color-scheme:light dark;
+--bg:light-dark(#eaf5fd,#0d1b2e);--bg2:light-dark(#cfe8f8,#132741);--card:light-dark(#ffffff,#162c47);
+--ink:light-dark(#173a63,#e3eefa);--soft:light-dark(#4f6d8f,#9fb6d1);--line:light-dark(#c3dbee,#25415f);
+--red:light-dark(#c8423a,#ff7d72);--teal:light-dark(#1f7f86,#5cc6c9);--deep:light-dark(#18565c,#8fd8d6)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:linear-gradient(180deg,var(--bg2),var(--bg) 520px);color:var(--ink);font:17px/1.75 "Iansui","LXGW WenKai TC","PingFang TC","Microsoft JhengHei",sans-serif;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:var(--teal)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+header.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:18px 0 6px}
+.brand{font-family:"LXGW WenKai TC",serif;font-weight:700;font-size:22px;letter-spacing:.04em}
+.brand small{display:block;font-family:"Iansui",sans-serif;font-weight:400;font-size:14px;color:var(--soft);letter-spacing:0}
+nav.links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px}
+nav.links a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.hero{padding:22px 0 8px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;align-items:end}
+h1{font-family:"LXGW WenKai TC",serif;font-weight:700;font-size:clamp(34px,5vw,52px);line-height:1.08;margin:0;text-wrap:balance}
+.lede{margin:8px 0 0;font-size:18px;color:var(--soft)}
+.range{font-size:15px;color:var(--soft);text-align:right;white-space:nowrap}
+.range b{display:block;font-size:20px;color:var(--ink);font-weight:400}
+.strip{margin:22px 0 8px;display:grid;grid-template-columns:4fr 4fr 5fr;gap:14px}
+.week{background:color-mix(in srgb,var(--card) 70%,transparent);border:1px solid var(--line);border-radius:18px;padding:10px 10px 12px}
+.week h3{margin:0 4px 8px;font-family:"LXGW WenKai TC",serif;font-size:17px;font-weight:700;display:flex;justify-content:space-between;gap:8px}
+.week h3 span{font-family:"Iansui",sans-serif;font-weight:400;font-size:13px;color:var(--soft);white-space:nowrap}
+.tiles{display:grid;gap:8px}
+.w4{grid-template-columns:repeat(4,minmax(0,1fr))}.w5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.tile{all:unset;cursor:pointer;display:block;border-radius:12px;overflow:hidden;position:relative;background:var(--bg2);outline:3px solid transparent;outline-offset:2px;transition:transform .2s}
+.tile img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.tile .k{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 5px;background:linear-gradient(transparent,rgba(10,30,55,.82));color:#fff;font-size:13px;line-height:1.25}
+.tile .k b{display:block;font-size:15px;font-weight:400}
+.tile .mk{position:absolute;top:5px;right:5px;font-size:13px;background:rgba(255,255,255,.88);color:#173a63;border-radius:20px;padding:0 7px;line-height:22px}
+.tile:hover{transform:translateY(-2px)}
+.tile:focus-visible{outline-color:var(--teal)}
+.tile[aria-current=true]{outline-color:var(--red)}
+.today{position:absolute;top:5px;left:5px;font-size:12px;background:var(--red);color:#fff;border-radius:20px;padding:0 7px;line-height:20px}
+.day{margin:26px 0 10px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(18px,3vw,40px);align-items:start}
+.pic{position:sticky;top:16px}
+.pic img{border-radius:20px;width:100%;aspect-ratio:4/5;object-fit:cover;box-shadow:0 10px 30px rgba(23,58,99,.18)}
+.pic .cap{font-size:14px;color:var(--soft);margin-top:8px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:15px;margin-bottom:6px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:1px 12px;white-space:nowrap}
+.chip.sp{border-color:var(--teal);color:var(--deep)}
+h2{font-family:"LXGW WenKai TC",serif;font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1.15;margin:12px 0 4px;text-wrap:balance}
+.kinline{font-size:18px;color:var(--soft);margin:0 0 14px}
+.quote{font-family:"LXGW WenKai TC",serif;font-size:21px;line-height:1.9;white-space:pre-line;margin:0 0 20px;padding:18px 22px;background:var(--card);border-radius:18px;border-left:4px solid var(--red)}
+.sec{margin:0 0 16px}
+.sec h4{margin:0 0 4px;font-size:17px;color:var(--deep);font-weight:400;font-family:"LXGW WenKai TC",serif}
+.sec p{margin:0;white-space:pre-line}
+.personal{font-size:15px;color:var(--soft)}
+.tags{font-size:15px;color:var(--teal);margin-top:6px}
+details{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 18px}
+summary{cursor:pointer;font-family:"LXGW WenKai TC",serif;font-size:18px}
+details p{white-space:pre-line;margin:10px 0 0;font-size:16px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
+.pager button{font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:9px 18px;min-height:44px;cursor:pointer}
+.pager button:disabled{opacity:.4;cursor:default}
+.pager button:focus-visible{outline:3px solid var(--teal)}
+.app{margin:40px 0 0;padding:clamp(22px,4vw,40px) 0;background:var(--bg2)}
+.app .in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.app h3{font-family:"LXGW WenKai TC",serif;font-size:26px;margin:0}
+.app p{margin:4px 0 0;color:var(--soft)}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;border-radius:30px;padding:11px 22px;font-size:17px;white-space:nowrap}
+footer{padding:26px 0 40px;font-size:15px;color:var(--soft)}
+footer b{font-family:"LXGW WenKai TC",serif;color:var(--ink);font-weight:700}
+.note{font-size:13px;color:var(--soft);margin:6px 0 0}
+@media(max-width:860px){.strip{grid-template-columns:1fr}.w4,.w5{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:600px){.hero{grid-template-columns:1fr}.range{text-align:left}.day{grid-template-columns:1fr}.pic{position:static}.w4{grid-template-columns:repeat(4,minmax(0,1fr))}.w5{grid-template-columns:repeat(5,minmax(0,1fr))}.tile .k{font-size:12px;padding:12px 4px 4px}.tile .k b{font-size:13px}.quote{font-size:19px;padding:14px 16px}}
+@media(prefers-reduced-motion:reduce){.tile{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="bar">
+<div class="brand">愛共鳴．藍手之光<small>13月亮曆每日流日</small></div>
+<nav class="links"><a href="#app">1328宇宙導航</a><a href="https://www.facebook.com/love.bluehand">Facebook</a><a href="https://www.instagram.com/love.bluehand">Instagram</a></nav>
+</header>
+<section class="hero">
+<div>
+<h1>藍風暴波</h1>
+<p class="lede">在風暴中心站穩自己，再讓風帶你躍起。</p>
+</div>
+<div class="range"><b>KIN 79–91</b>2026/11/13–11/25</div>
+</section>
+<div class="strip" id="strip"></div>
+
+<article class="day" id="day"></article>
+</div>
+<section class="app" id="app"><div class="wrap in">
+<div><h3>想知道自己的個人印記？</h3><p>今天的印記是大家共同的能量，下載「1328宇宙導航」就能查詢你的個人印記。</p></div>
+<a class="btn" href="https://arthur-lovebluehand.github.io/1328-download/">下載 1328宇宙導航</a>
+</div></section>
+<div class="wrap"><footer><b>天賦覺察師．Arthur Su</b>／KIN 7 共鳴藍手<br>In Lak'ech Ala K'in 💙</footer></div>
+<script>
+{
+const D=[{"kin": 79, "name": "磁性藍風暴", "date": "2026/11/13（五）", "coord": "N.S. 1.39.04.27", "sp": "", "personal": "KIN 86 銀河星系白世界橋 / 藍風暴波", "theme": "風起之前，先站穩", "quote": "新的13天，風開始轉向，\n很多事好像同時在動，\n心也跟著有點浮，\n不用急著做出改變，\n先回到呼吸，\n讓自己在中心站穩，\n當你安住了，\n改變會從你身上自然發生。", "remindT": "磁性藍風暴提醒我們的是：", "remind": "風暴的中心，往往是最安靜的地方。\n外面再怎麼轉，\n只要你先站穩，\n這陣風就不會把你吹散，\n而是帶著你，往新的地方去。", "personalR": "今天適合做個小小的告別，\n把用完的東西、聊完的話題好好收尾，\n收得乾淨，\n新的機會才有門可以進來。", "practice": "今天找個安靜的時間，\n雙腳踩穩地面，慢慢呼吸十次，\n感覺自己站在風暴的中心。\n呼吸完，寫下一句：\n「這13天，我想讓＿＿＿開始轉變。」", "tags": "#新的開始 #站穩自己 #藍風暴\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【藍風暴波｜新的 13 天開始了】\n今天是 KIN 79 磁性藍風暴，\n新的波符「藍風暴波」從今天開始，\n會一路走到 11/25 的 KIN 91 宇宙藍猴。\n\n風一吹，舊的樣子開始鬆動，\n讓新的自己有機會長出來。\n但風暴要成為催化，\n前提是自己先站穩。\n這一波我寫下的一句話是：\n在風暴中心站穩自己，再讓風帶你躍起。\n\n接下來的 13 天，\n每天早上我會分享當天的能量，\n晚上再陪你回看這天。\n\n這 13 天，你最想讓哪一件事開始轉變？\n歡迎留言告訴我。\n\n🔯 KIN 79 磁性藍風暴 / 藍風暴波\n🌀 N.S. 1.39.04.27\n\n#藍風暴波 #新的開始 #磁性藍風暴 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 80, "name": "月亮黃太陽", "date": "2026/11/14（六）", "coord": "N.S. 1.39.04.28", "sp": "", "personal": "KIN 87 太陽藍手 / 藍風暴波", "theme": "不必分出明暗", "quote": "當心裡有兩個聲音在拉扯，\n一邊想往前，一邊想停下，\n你不必急著選邊站，\n更無需責怪猶豫的自己，\n太陽本就照亮每個角落，\n它從不挑選該照哪裡，\n今天也這樣對待自己，\n接住全部的你，光就完整了。", "remindT": "月亮黃太陽提醒我們的是：", "remind": "光和影本來就一起存在。\n不必把自己切成好的和不好的，\n當你願意接住猶豫的那一面，\n內在的太陽，\n會照得更完整。", "personalR": "把手上那件做到一半的事，\n今天收個尾，\n完成的時候，\n本身就是對自己的肯定。", "practice": "今天寫下兩個在心裡拉扯的聲音：\n「A的我想＿＿＿，B的我想＿＿＿。」\n不急著選，\n在旁邊寫上：「兩個都是我，我都接住。」", "tags": "#接納自己 #光與影 #黃太陽\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【今日提問】\n我能不能也溫柔接住那個猶豫的自己？\n\n今天是 KIN 80 月亮黃太陽，\n白天裡，心可能在對與錯之間來回了好幾次。\n睡前想想看，\n今天有沒有哪個時刻，\n面對猶豫的自己有點不耐煩？\n今晚試著對它說：\n「沒關係，我知道你也在努力。」\n\n歡迎在留言寫下你的答案；\n不想公開也沒關係，把它寫下來給自己看就好。\n\n🔯 KIN 80 月亮黃太陽 / 藍風暴波\n🌀 N.S. 1.39.04.28\n\n#今日提問 #月亮黃太陽 #藍風暴波 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 81, "name": "電力紅龍", "date": "2026/11/15（日）", "coord": "N.S. 1.39.05.01", "sp": "", "personal": "KIN 88 行星黃星星 / 藍風暴波", "theme": "讓身體先動起來", "quote": "想法在腦中轉了好幾圈，\n卻遲遲沒有出發，\n今天別再等準備好，\n起身動一動，伸展你的筋骨，\n好好地吃頓飯，\n當身體被照顧了，\n那股誕生的力量，\n會自然地從內在湧上來！", "remindT": "電力紅龍提醒我們的是：", "remind": "新的力量要誕生，\n往往是從身體開始的。\n與其在腦中等待時機，\n不如先照顧好身體，\n身體穩了力量就來了，行動也就跟著啟動。", "personalR": "今天留意身邊的小細節，\n這朵花、那道光影、某個好看的杯子，\n你看見美的那刻起，\n也在把美帶進生活。", "practice": "今天找十分鐘，\n做幾個簡單的伸展，從脖子、肩膀到腳踝，\n邊動邊感覺身體慢慢醒過來。\n做完之後，\n再為自己好好準備頓飯。", "tags": "#照顧身體 #行動 #紅龍\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【13月亮曆小教室｜什麼是波符？】\n這幾天你可能會看到我寫「藍風暴波」，\n「波符」是什麼呢？\n\n在 260 天的卓爾金曆裡，\n每 13 天是一段旅程，叫做一個「波符」，\n一共有 20 個波符。\n每一波由第一天的印記帶領，\n這 13 天就會帶著那個印記的主題。\n\n這一波由藍風暴帶領，\n這 13 天或許會遇到不少變動，\n它也邀請我們在變動中站穩，再往前躍起。\n13 天也可以分成三段：\n啟動週、擴展週、收成週，\n就像播種、長大、收成。\n\n今天是第 3 天，電力紅龍，\n正是讓身體動起來、啟動行動的時候。\n你出生那天，是哪一個波符呢？\n可以在「1328宇宙導航」查詢你的個人印記\n👉 https://arthur-lovebluehand.github.io/1328-download/\n歡迎在留言與我分享；我會與你有小互動🤗\n\n🔯 KIN 81 電力紅龍 / 藍風暴波\n🌀 N.S. 1.39.05.01\n\n#13月亮曆小教室 #波符 #藍風暴波 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 82, "name": "自我存在白風", "date": "2026/11/16（一）", "coord": "N.S. 1.39.05.02", "sp": "", "personal": "KIN 89 光譜紅月 / 藍風暴波", "theme": "說出心裡真正的話", "quote": "有些話放在心裡很久，\n怕說了不被理解，\n也怕說得不夠好，\n今天先為它找個形狀，\n寫在紙上，或說給信任的人，\n不需要說得漂亮，\n只要說的是真心，\n對的人自然聽得懂。", "remindT": "自我存在白風提醒我們的是：", "remind": "話憋在心裡，就像一口氣沒吐出來。\n當心裡的話有了形狀，\n它就不再悶在胸口，\n說出真心，\n關係也會跟著透氣。", "personalR": "身體裡的水也需要流動，\n多喝幾杯水、泡個澡或沖個熱水澡，\n讓自己好好被洗滌，\n人也跟著清爽。", "practice": "今天拿張紙，\n寫下那句想說很久、卻還沒說出口的話。\n先唸給自己聽，\n再想想：\n「我想把這句話，說給誰聽？」", "tags": "#真心話 #溝通 #白風\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【今日提問】\n有什麼話，我想好好說給誰聽？\n\n今天是 KIN 82 自我存在白風，\n白天忙著回應別人，\n晚上留一點時間聽聽自己。\n睡前想想，\n今天有沒有哪句話，到了嘴邊又吞回去？\n不急著說出口，\n先在心裡對自己說一遍，\n讓自己先聽見就好。\n\n歡迎在留言寫下你的答案；\n不想公開也沒關係，把它寫下來給自己看就好。\n\n🔯 KIN 82 自我存在白風 / 藍風暴波\n🌀 N.S. 1.39.05.02\n\n#今日提問 #自我存在白風 #藍風暴波 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 83, "name": "超頻藍夜", "date": "2026/11/17（二）", "coord": "N.S. 1.39.05.03", "sp": "🐢 魔法烏龜日", "personal": "KIN 90 水晶白狗 / 藍風暴波", "theme": "讓夢想被看見", "quote": "心裡那個夢，\n你藏了好一陣子吧，\n總覺得還不是時候，\n就在今天，給它一點光，\n說給自己聽，也說給朋友聽，\n帶著一點玩心去想像，\n豐盛不在遠方，\n它就在你敢做的夢裡。", "remindT": "超頻藍夜提醒我們的是：", "remind": "夜裡做的夢，常常藏著心裡真正想要的。\n夢藏得太久，會以為它不重要，\n當你願意把它說出來，\n它就開始有了力量，\n豐盛也跟著靠近。", "personalR": "今天在合作裡，\n多相信夥伴些，\n願意交出信任，\n你會發現，不必事事自己扛。", "practice": "今天寫下那個你藏了很久的夢，\n不管它看起來多大、多遠。\n再寫下：\n「如果它成真了，我會＿＿＿。」\n寫完，挑個信任的朋友說給他聽。", "tags": "#夢想 #豐盛 #魔法烏龜日\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【13月亮曆小教室｜時間城堡】\n今天剛好是魔法烏龜日，\n圖卡上有隻小烏龜，\n我們也順便來認識「時間城堡」。\n\n260 天的卓爾金曆，\n可以分成 5 座時間城堡，\n每座 52 天，裡面住著 4 個波符：\n🔴 紅色時間城堡（KIN 1–52）\n⚪ 白色時間城堡（KIN 53–104）\n🔵 藍色時間城堡（KIN 105–156）\n🟡 黃色時間城堡（KIN 157–208）\n🟢 綠色時間城堡（KIN 209–260）\n\n我們現在走在白色時間城堡，\n從紅天行者波、白世界橋波，\n到這一波的藍風暴波，\n接下來還有黃人波。\n這段路像是場大掃除，\n放下、沉澱，再繼續往前走。\n\n你出生的那天，住在哪座城堡呢？\n在「1328宇宙導航」查到你的主印記，\n對照上面的「說明」就知道了\n👉 https://arthur-lovebluehand.github.io/1328-download/\n歡迎在留言與我分享；我會與你有小互動🤗\n\n🔯 KIN 83 超頻藍夜 / 藍風暴波\n🌀 N.S. 1.39.05.03 🐢 魔法烏龜日\n\n#13月亮曆小教室 #時間城堡 #藍風暴波 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 84, "name": "韻律黃種子", "date": "2026/11/18（三）", "coord": "N.S. 1.39.05.04", "sp": "", "personal": "KIN 91 宇宙藍猴 / 藍風暴波", "theme": "找回自己的節奏", "quote": "手上的事排得滿滿，\n每件都想照顧好，\n日子的節奏就亂了，\n今天停下來整理看看，\n哪些是你真正在乎的，\n哪些只是順手接下的，\n留下最重要的那件事，\n用自己的步調陪它長大。", "remindT": "韻律黃種子提醒我們的是：", "remind": "種子不需要同時長成一片森林。\n目標太多，力氣就散了，\n找回自己的節奏，\n專心照顧最重要的那顆，\n它會長得又穩又好。", "personalR": "今天特別容易看穿事情的真相，\n看清了，\n就不必再被它牽著走，\n心也輕了。", "practice": "今天把手上正在進行的事全部列出來，\n在每件旁邊標上：「在乎」或「順手」。\n挑出最在乎的那件，\n寫下這週能為它做的小步驟。", "tags": "#節奏 #專注 #黃種子\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【今日提問】\n留下哪件事，我的步調會更自在？\n\n今天是 KIN 84 韻律黃種子，\n日子忙起來，節奏很容易被別人帶著走。\n睡前回想一下今天：\n有哪件事，做完之後只覺得更累？\n少了它，\n你的節奏會不會更自在些？\n\n歡迎在留言寫下你的答案；\n不想公開也沒關係，把它寫下來給自己看就好。\n\n🔯 KIN 84 韻律黃種子 / 藍風暴波\n🌀 N.S. 1.39.05.04\n\n#今日提問 #韻律黃種子 #藍風暴波 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 85, "name": "共鳴紅蛇", "date": "2026/11/19（四）", "coord": "N.S. 1.39.05.05", "sp": "🟢 綠色隧道日", "personal": "KIN 92 磁性黃人 / 黃人波", "theme": "聽聽身體的聲音", "quote": "頭腦總說還可以再撐一下，\n身體卻早就給了訊號，\n肩膀的緊、胃口的變化，\n都是它在提醒你，\n今天安靜地感受它，\n順著那份感覺去調整，\n當你和身體在同樣的頻率裡，\n生命力會重新流動起來。", "remindT": "共鳴紅蛇提醒我們的是：", "remind": "身體比頭腦更早知道答案。\n肩膀鬆了、呼吸深了，\n那是它在說：謝謝你聽見我。\n跟著身體的感覺走，\n力量就會從裡面湧上來。", "personalR": "新的波符，在自己身上先開始了，\n問問自己：\n接下來這段路，\n我想為自己做什麼決定？", "practice": "今天睡前躺下來，\n從頭頂到腳底，慢慢掃過全身，\n哪裡緊、哪裡累，就在那裡多停留點時間，\n對它說：「謝謝你提醒我。」", "tags": "#身體的聲音 #生命力 #綠色隧道日\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【13月亮曆小教室｜銀河季節】\n今天是綠色隧道日，\n圖卡上 KIN 旁邊多了綠色的符號，\n這波的另一天綠色隧道日，在 11/22 的 KIN 88。\n\n今天想跟你聊聊「銀河季節」。\n260 天的卓爾金曆，\n每 65 天是一個銀河季節，\n從 KIN 185 電力紅蛇開始，\n依序是紅、白、藍、黃四個季節：\n🔴 紅色銀河季節（KIN 185–249）\n⚪ 白色銀河季節（KIN 250–260、KIN 1–54）\n🔵 藍色銀河季節（KIN 55–119）\n🟡 黃色銀河季節（KIN 120–184）\n\n有趣的是，每個季節的第一天都是電力調性：\n電力紅蛇、電力白狗、電力藍鷹、電力黃太陽。\n\n我們現在在藍色銀河季節，\n從 10/20 的 KIN 55 電力藍鷹開始，\n會一路走到 12/23 的 KIN 119 月亮藍風暴。\n這整個季節，都像在轉身，\n和這波藍風暴正好呼應。\n\n這段日子，你覺得自己有哪裡正在轉變？\n或是正在經歷什麼風暴，想找人聊聊？\n歡迎在留言與我分享；我會與你有小互動💚\n\n🔯 KIN 85 共鳴紅蛇 / 藍風暴波\n🌀 N.S. 1.39.05.05 🟢 綠色隧道日\n\n#13月亮曆小教室 #銀河季節 #藍風暴波 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 86, "name": "銀河星系白世界橋", "date": "2026/11/20（五）", "coord": "N.S. 1.39.05.06", "sp": "", "personal": "KIN 93 月亮紅天行者 / 黃人波", "theme": "讓心和行動一致", "quote": "說好要放下的，\n是不是還悄悄握在手裡，\n今天不必勉強自己，\n只要誠實地看看它，\n哪些堅持還是你要的，\n哪些早已不合身，\n當心裡想的和手上做的，\n走在同一條路上，就自在了。", "remindT": "銀河星系白世界橋提醒我們的是：", "remind": "整合，不是硬把自己拼湊起來，\n而是讓裡外對齊。\n當心裡想的、手上做的，\n走在同一條路上，\n人就不再被拉扯，\n新的機會也更容易走進來。", "personalR": "想去又不敢去的地方，\n先在心裡走看看，\n不必馬上決定，\n讓好奇心帶路。", "practice": "今天寫下一件「說好要放下，卻還握著」的事，\n問自己兩個問題：\n「它現在還適合我嗎？」\n「如果鬆開手，我會多出什麼空間？」", "tags": "#知行合一 #放下 #白世界橋\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【今日提問】\n有什麼是我嘴上放下，心裡卻還握著的？\n\n今天是 KIN 86 銀河星系白世界橋，\n夜晚安靜下來，心裡的聲音也比較清楚。\n睡前想想看：\n有沒有哪件事，你跟別人說已經沒事了，\n心裡卻還常常想起？\n不用急著放，\n今晚先誠實地承認它還在，就好。\n\n歡迎在留言寫下你的答案；\n不想公開也沒關係，把它寫下來給自己看就好。\n\n🔯 KIN 86 銀河星系白世界橋 / 藍風暴波\n🌀 N.S. 1.39.05.06\n\n#今日提問 #銀河星系白世界橋 #藍風暴波 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 87, "name": "太陽藍手", "date": "2026/11/21（六）", "coord": "N.S. 1.39.05.07", "sp": "", "personal": "KIN 94 電力白巫師 / 黃人波", "theme": "把心意放在手上", "quote": "你放在心上很久的那件事，\n今天就讓雙手去完成它，\n不必做得很大，\n為家人煮頓飯，\n或是親手寫張卡片給朋友，\n帶著心意去做的事，\n會先讓你的心踏實，\n再把溫暖傳出去。", "remindT": "太陽藍手提醒我們的是：", "remind": "放在心裡的那件事，\n想再多遍，都還只是想；\n當你真的動手去做，\n它就有了溫度，\n你也會發現，原來自己做得到。", "personalR": "今天全心投入眼前的事，\n手機放遠點，\n專注本身，\n就是最好的魔法。", "practice": "今天挑個你在乎的人，\n親手為他做件小事：\n煮道菜、寫張卡片、泡杯茶都可以。\n做的時候，\n在心裡想著你想對他說的那句話。", "tags": "#心意 #動手做 #藍手\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【App 小教學｜幫家人查查印記】\n今天是 KIN 87 太陽藍手，\n心意不只放在心裡，也可以親手送出去。\n\n除了親手為家人做點什麼，\n還有個小小的心意可以送：\n在「1328宇宙導航」輸入家人的生日，\n幫他查查看他的主印記，\n再找個時間，跟他聊聊他的天賦。\n\n很多時候，被看見本身，\n就是很溫暖的禮物。\n\n下載「1328宇宙導航」\n👉 https://arthur-lovebluehand.github.io/1328-download/\n歡迎在留言分享你幫誰查了、查到什麼印記；\n我會與你有小互動🤗\n\n🔯 KIN 87 太陽藍手 / 藍風暴波\n🌀 N.S. 1.39.05.07\n\n#App小教學 #主印記 #1328宇宙導航 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 88, "name": "行星黃星星", "date": "2026/11/22（日）", "coord": "N.S. 1.39.05.08", "sp": "🟢 綠色隧道日", "personal": "KIN 95 自我存在藍鷹 / 黃人波", "theme": "讓你的美發光", "quote": "那些你用心做出來的東西，\n不必等到完美才拿出來，\n今天大方地讓它被看見，\n也給自己好好打扮，\n用喜歡的樣子出門，\n不用跟誰比較，\n你對生活的那份用心，\n本來就閃閃發亮！", "remindT": "行星黃星星提醒我們的是：", "remind": "每個人身上，都有自己的光。\n你的美不需要等到完美，\n當你願意讓它被看見，\n它就已經在發光了。", "personalR": "把心裡的願景畫成圖，\n或寫成清單，\n有了形狀，\n就看得更清楚。", "practice": "今天把你用心做的作品、\n拍得喜歡的照片，或今天的穿搭，\n大方分享給朋友看。\n留意一下，\n被看見的時候，心裡是什麼感覺。", "tags": "#發光 #美 #綠色隧道日\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【今日提問】\n今天，我想讓誰看見我的用心？\n\n今天是 KIN 88 行星黃星星，\n也是這一波的第二個綠色隧道日，\n今天的你，過得好嗎？\n睡前想想：\n今天你做的哪些事，是帶著用心的？\n不管有沒有人看見，\n那份用心，都足以讓今天更美了。\n\n歡迎在留言寫下你的答案；\n也可以把你的作品分享在留言，讓大家一起看見✨\n\n🔯 KIN 88 行星黃星星 / 藍風暴波\n🌀 N.S. 1.39.05.08 🟢 綠色隧道日\n\n#今日提問 #行星黃星星 #綠色隧道日 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 89, "name": "光譜紅月", "date": "2026/11/23（一）", "coord": "N.S. 1.39.05.09", "sp": "", "personal": "KIN 96 超頻黃戰士 / 黃人波", "theme": "讓卡住的情緒流動", "quote": "在兩個選擇之間，\n你已經來回想了很久，\n心裡的情緒也積著，\n今天讓它流動起來，\n哭也好，跳支舞也好，\n把它化成行動的力量，\n像水一樣，流動了就清了，\n路也跟著清楚了。", "remindT": "光譜紅月提醒我們的是：", "remind": "眼淚、怒氣、委屈，\n都不是要你硬壓下去的東西。\n在兩難裡糾結太久，\n力量就悶在身體裡，\n當情緒有了出口，\n悶著的，就會變成往前的動力。", "personalR": "有想問的，就勇敢問出口，\n問題問對了，\n力量就出來了，\n答案也跟著靠近。", "practice": "今天放一首讓你想動起來的歌，\n跟著它動一動、跳一跳，\n或大聲唱出來。\n結束之後，寫下它：\n「這股力量，我想用在＿＿＿。」", "tags": "#情緒流動 #釋放 #紅月\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【今日提問】\n有沒有什麼事，你心裡其實早就有答案了？\n\n夜深了，\n白天那些翻來覆去的念頭，\n在這時候常常會安靜一點。\n很多時候我們不是不知道，\n只是還沒準備好承認。\n今晚不用急著做決定，\n只要對自己誠實地說：\n如果沒有任何顧慮，我會往哪裡走？\n\n歡迎在留言寫下你的答案；\n不想公開也沒關係，寫在手機備忘錄給自己看就好。\n\n🔯 KIN 89 光譜紅月 / 藍風暴波\n🌀 N.S. 1.39.05.09\n\n#今日提問 #光譜紅月 #藍風暴波 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 90, "name": "水晶白狗", "date": "2026/11/24（二）", "coord": "N.S. 1.39.05.10", "sp": "", "personal": "KIN 97 韻律紅地球 / 黃人波", "theme": "把感謝說給夥伴", "quote": "這一路走來，\n身邊總有人陪著你，\n也許是句暖心的問候，\n也許是默默地幫忙，\n今天把感謝說出口，\n也讓別人有機會陪你，\n心和心靠在一起，\n再大的風也吹不散。", "remindT": "水晶白狗提醒我們的是：", "remind": "一個人撐，很累；\n有人同行，路就寬了。\n風暴裡最穩的力量，\n是身邊願意陪著你的人，\n把感謝說出口，\n這份連結就更深了。", "personalR": "留意今天出現的巧合，\n它們就像路標，\n跟著節奏走，\n方向自然清楚。", "practice": "今天傳訊息給 1～3 個陪你走過這段路的人，\n不用很長，一句就好：\n「謝謝你在＿＿＿的時候陪著我。」\n送出去之後，\n感受心裡的溫度。", "tags": "#感謝 #夥伴 #白狗\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【今日提問】\n這些日子，我又是誰身邊那個穩穩的人？\n\n白天我們想著要謝謝誰，\n晚上不妨反過來看看自己：\n有沒有誰在低潮的時候，\n第一個想到的是你？\n那些你伸手接住別人的時刻，\n也值得被自己記得。\n\n想念誰，就在留言 tag 他，\n跟他說一聲「有你真好」💙\n\n🔯 KIN 90 水晶白狗 / 藍風暴波\n🌀 N.S. 1.39.05.10\n\n#今日提問 #水晶白狗 #藍風暴波 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}, {"kin": 91, "name": "宇宙藍猴", "date": "2026/11/25（三）", "coord": "N.S. 1.39.05.11", "sp": "", "personal": "KIN 98 共鳴白鏡 / 黃人波", "theme": "笑著看走過的風暴", "quote": "回頭看這13天，\n有些事當時覺得好難，\n現在想起來，\n竟然可以笑一笑，\n風暴吹走了舊的樣子，\n也把你帶到新的位置，\n帶著這份輕鬆往前吧，\n你已經不一樣了！", "remindT": "宇宙藍猴提醒我們的是：", "remind": "很多當時以為過不去的事，\n換個角度看，其實沒有那麼重。\n當你能笑著回頭看，\n那場風暴就完成了它的任務，\n留下來的，是更輕盈的你。", "personalR": "安靜下來，照照心裡的鏡子，\n別人身上讓你在意的地方，\n也許正在提醒你，\n自己還沒看見的那一面。", "practice": "今天寫下這13天裡，\n當時覺得很難、現在想起來會笑的事。\n在旁邊寫下：\n「謝謝那時候的我，撐過來了。」", "tags": "#玩心 #輕鬆 #完成\n#藍手之光 #以愛共鳴藍手語錄", "evening": "🌙【藍風暴波｜13 天的旅程，到這裡告一段落】\n今天是 KIN 91 宇宙藍猴，藍風暴波的最後一天。\n\n這 13 天，我們一起走過：\n① 風起之前，先站穩\n② 不必分出明暗\n③ 讓身體先動起來\n④ 說出心裡真正的話\n⑤ 讓夢想被看見\n⑥ 找回自己的節奏\n⑦ 聽聽身體的聲音\n⑧ 讓心和行動一致\n⑨ 把心意放在手上\n⑩ 讓你的美發光\n⑪ 讓卡住的情緒流動\n⑫ 把感謝說給夥伴\n⑬ 笑著看走過的風暴\n\n如果只能帶走其中一句，\n你會選哪一句，陪你走進下一段路？\n留言告訴我數字就好，\n我很好奇大家最有感的是哪一天😊\n\n明天 11/26 是 KIN 92 磁性黃人，\n新的 13 天「黃人波」就要開始了。\n\n在風暴中心站穩自己，再讓風帶你躍起。\n謝謝這 13 天的陪伴，In Lak'ech Ala K'in 💙\n\n🔯 KIN 91 宇宙藍猴 / 藍風暴波\n🌀 N.S. 1.39.05.11\n\n#波符回顧 #藍風暴波 #宇宙藍猴 #13月亮曆\n#藍手之光 #以愛共鳴藍手語錄"}];
+const IMG={"79": "img/kin79.jpg", "80": "img/kin80.jpg", "81": "img/kin81.jpg", "82": "img/kin82.jpg", "83": "img/kin83.jpg", "84": "img/kin84.jpg", "85": "img/kin85.jpg", "86": "img/kin86.jpg", "87": "img/kin87.jpg", "88": "img/kin88.jpg", "89": "img/kin89.jpg", "90": "img/kin90.jpg", "91": "img/kin91.jpg"};
+const weeks=[["🚩 啟動週","第 1–4 天",0,4,"w4"],["🔄 擴展週","第 5–8 天",4,8,"w4"],["✨ 收成週","第 9–13 天",8,13,"w5"]];
+const short=s=>s.replace(/（.+）/,'').replace('2026/','');
+const todayKey=(()=>{const t=new Date();return (t.getMonth()+1)+'/'+t.getDate();})();
+const isToday=d=>short(d.date)===todayKey&&new Date().getFullYear()===2026;
+const strip=document.getElementById('strip'),day=document.getElementById('day');
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+strip.innerHTML=weeks.map(w=>`<div class="week"><h3>${w[0]}<span>${w[1]}</span></h3><div class="tiles ${w[4]}">`+
+ D.slice(w[2],w[3]).map(d=>`<button class="tile" data-k="${d.kin}" aria-label="KIN ${d.kin} ${d.name}，${short(d.date)}">
+ <img src="${IMG[d.kin]}" alt="" loading="lazy">${isToday(d)?'<span class="today">今天</span>':''}${d.sp?`<span class="mk">${d.sp.split(' ')[0]}</span>`:''}
+ <span class="k"><b>KIN ${d.kin}</b>${short(d.date)}</span></button>`).join('')+`</div></div>`).join('');
+function show(k,push){
+ const i=D.findIndex(d=>d.kin===k);if(i<0)return;const d=D[i];
+ day.innerHTML=`<div class="pic"><img src="${IMG[d.kin]}" alt="KIN ${d.kin} ${d.name} 當日印記意向圖"><div class="cap">當日印記意向圖｜KIN ${d.kin} ${d.name}</div></div>
+ <div>
+ <div class="meta"><span class="chip">${d.date}</span><span class="chip">星際座標 ${d.coord}</span>${d.sp?`<span class="chip sp">${d.sp}</span>`:''}</div>
+ <h2>${esc(d.theme)}</h2>
+ <p class="kinline">KIN ${d.kin} ${d.name}｜藍風暴波第 ${i+1} 天</p>
+ <p class="quote">${esc(d.quote)}</p>
+ <div class="sec"><h4>🔔 ${esc(d.remindT)}</h4><p>${esc(d.remind)}</p></div>
+ <div class="sec"><h4>☀️ 個人流日的提醒</h4><p class="personal">KIN 7 共鳴藍手走進今天：${esc(d.personal)}</p><p>${esc(d.personalR)}</p></div>
+ <div class="sec"><h4>📝 小練習</h4><p>${esc(d.practice)}</p></div>
+ <div class="tags">${esc(d.tags)}</div>
+ ${d.evening?`<details><summary>🌙 晚上的分享</summary><p>${esc(d.evening)}</p></details>`:''}
+ <div class="pager"><button id="pv" ${i===0?'disabled':''}>← KIN ${i>0?D[i-1].kin:''}</button><button id="nx" ${i===D.length-1?'disabled':''}>KIN ${i<D.length-1?D[i+1].kin:''} →</button></div>
+ </div>`;
+ strip.querySelectorAll('.tile').forEach(t=>t.setAttribute('aria-current',+t.dataset.k===k));
+ const pv=document.getElementById('pv'),nx=document.getElementById('nx');
+ if(i>0)pv.onclick=()=>go(D[i-1].kin);if(i<D.length-1)nx.onclick=()=>go(D[i+1].kin);
+ if(push)try{history.replaceState(null,'','#kin'+k)}catch(e){location.hash='kin'+k}
+}
+function go(k){show(k,true);day.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})}
+strip.addEventListener('click',e=>{const t=e.target.closest('.tile');if(t)go(+t.dataset.k)});
+const fromHash=()=>{const m=location.hash.match(/kin(\d+)/);return m?+m[1]:null};
+const td=D.find(isToday);
+show(fromHash()||(td?td.kin:D[0].kin),false);
+addEventListener('hashchange',()=>{const k=fromHash();if(k)show(k,false)});
+}
+</script>
+</body>
+</html>
