@@ -179,7 +179,7 @@ function show(k,push,md){
   body=`<h2>${esc(ttl)}</h2><p class="kinline">KIN ${d.kin} ${d.name}｜藍風暴波第 ${i+1} 天・晚上</p>
   <div class="sec"><p>${esc(txt).replace(/(https:\/\/[^\s<]+)/g,'<a href="$1">$1</a>')}</p></div><div class="tags">${esc(tg)}</div>`;
  }
- const talk=`<div class="talk"><h4>💬 想說說你的感受嗎？</h4><div class="tb"><a href="https://www.facebook.com/love.bluehand">到 Facebook 留言</a><a href="https://www.instagram.com/love.bluehand">到 Instagram 留言</a><a href="https://lin.ee/Ck2a8jP">LINE 私訊我</a></div></div>`;
+ const talk=`<div class="talk"><h4>💬 想說說你的感受嗎？</h4><div class="tb"><a href="https://www.facebook.com/love.bluehand">到 Facebook 留言</a><a href="https://www.instagram.com/love.bluehand">到 Instagram 留言</a><a href="https://lin.ee/Ck2a8jP">加官方 LINE 聊聊</a></div></div>`;
  day.innerHTML=`<div class="pic">${pic}</div><div>${meta}${tabs}${body}${talk}${pager}</div>`;
  strip.querySelectorAll('.tile').forEach(t=>t.setAttribute('aria-current',+t.dataset.k===k));
  day.querySelectorAll('[role=tab]').forEach(b=>b.onclick=()=>show(k,false,b.dataset.m));
