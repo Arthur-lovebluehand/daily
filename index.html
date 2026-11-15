@@ -51,6 +51,10 @@ h1{font-family:"LXGW WenKai TC",serif;font-weight:700;font-size:clamp(34px,5vw,5
 .tile .k{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 5px;background:linear-gradient(transparent,rgba(10,30,55,.82));color:#fff;font-size:13px;line-height:1.25}
 .tile .k b{display:block;font-size:15px;font-weight:400}
 .tile .mk{position:absolute;top:5px;right:5px;font-size:13px;background:rgba(255,255,255,.88);color:#173a63;border-radius:20px;padding:0 7px;line-height:22px}
+.tile.lock{cursor:default;aspect-ratio:4/5;display:grid;place-items:center;background:linear-gradient(160deg,var(--bg2),var(--card));border:1px dashed var(--line);text-align:center}
+.lk{font-size:12px;color:var(--soft);line-height:1.35}
+.lk b{display:block;font-size:14px;color:var(--ink);font-weight:400}
+.eve.wait p{margin:0;color:var(--soft)}
 .tile:hover{transform:translateY(-2px)}
 .tile:focus-visible{outline-color:var(--teal)}
 .tile[aria-current=true]{outline-color:var(--red)}
@@ -123,16 +127,19 @@ const D=[{"kin": 79, "name": "磁性藍風暴", "date": "2026/11/13（五）", "
 const IMG={"79": "img/kin79.jpg", "80": "img/kin80.jpg", "81": "img/kin81.jpg", "82": "img/kin82.jpg", "83": "img/kin83.jpg", "84": "img/kin84.jpg", "85": "img/kin85.jpg", "86": "img/kin86.jpg", "87": "img/kin87.jpg", "88": "img/kin88.jpg", "89": "img/kin89.jpg", "90": "img/kin90.jpg", "91": "img/kin91.jpg"};
 const weeks=[["🚩 啟動週","第 1–4 天",0,4,"w4"],["🔄 擴展週","第 5–8 天",4,8,"w4"],["✨ 收成週","第 9–13 天",8,13,"w5"]];
 const short=s=>s.replace(/（.+）/,'').replace('2026/','');
-const todayKey=(()=>{const t=new Date();return (t.getMonth()+1)+'/'+t.getDate();})();
-const isToday=d=>short(d.date)===todayKey&&new Date().getFullYear()===2026;
+const ymd=d=>d.date.match(/(\d+)\/(\d+)\/(\d+)/).slice(1).map(Number);
+const at=(d,h,m)=>{const [y,mo,da]=ymd(d);return Date.UTC(y,mo-1,da,h-8,m)};
+const mOpen=d=>Date.now()>=at(d,8,0), eOpen=d=>Date.now()>=at(d,20,30);
+const isToday=d=>{const n=Date.now();return n>=at(d,0,0)&&n<at(d,24,0)};
 const strip=document.getElementById('strip'),day=document.getElementById('day');
 const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-strip.innerHTML=weeks.map(w=>`<div class="week"><h3>${w[0]}<span>${w[1]}</span></h3><div class="tiles ${w[4]}">`+
- D.slice(w[2],w[3]).map(d=>`<button class="tile" data-k="${d.kin}" aria-label="KIN ${d.kin} ${d.name}，${short(d.date)}">
+const render=()=>{strip.innerHTML=weeks.map(w=>`<div class="week"><h3>${w[0]}<span>${w[1]}</span></h3><div class="tiles ${w[4]}">`+
+ D.slice(w[2],w[3]).map(d=>!mOpen(d)?`<div class="tile lock" aria-label="${short(d.date)} 早上 8:00 揭曉"><span class="lk"><b>${short(d.date)}</b>08:00 揭曉</span></div>`:`<button class="tile" data-k="${d.kin}" aria-label="KIN ${d.kin} ${d.name}，${short(d.date)}">
  <img src="${IMG[d.kin]}" alt="" loading="lazy">${isToday(d)?'<span class="today">今天</span>':''}${d.sp?`<span class="mk">${d.sp.split(' ')[0]}</span>`:''}
- <span class="k"><b>KIN ${d.kin}</b>${short(d.date)}</span></button>`).join('')+`</div></div>`).join('');
+ <span class="k"><b>KIN ${d.kin}</b>${short(d.date)}</span></button>`).join('')+`</div></div>`).join('');};render();
+let cur=null;const latest=()=>{const o=D.filter(mOpen);return o.length?o[o.length-1]:D[0]};
 function show(k,push){
- const i=D.findIndex(d=>d.kin===k);if(i<0)return;const d=D[i];
+ const i=D.findIndex(d=>d.kin===k);if(i<0||!mOpen(D[i]))return show(latest().kin,false);cur=k;const d=D[i];
  day.innerHTML=`<div class="pic"><img src="${IMG[d.kin]}" alt="KIN ${d.kin} ${d.name} 當日印記意向圖"><div class="cap">當日印記意向圖｜KIN ${d.kin} ${d.name}</div></div>
  <div>
  <div class="meta"><span class="chip">${d.date}</span><span class="chip">星際座標 ${d.coord}</span>${d.sp?`<span class="chip sp">${d.sp}</span>`:''}</div>
@@ -143,19 +150,20 @@ function show(k,push){
  <div class="sec"><h4>☀️ 個人流日的提醒</h4><p class="personal">KIN 7 共鳴藍手走進今天：${esc(d.personal)}</p><p>${esc(d.personalR)}</p></div>
  <div class="sec"><h4>📝 小練習</h4><p>${esc(d.practice)}</p></div>
  <div class="tags">${esc(d.tags)}</div>
- ${d.evening?`<section class="eve"><h3>🌙 晚上的分享</h3><div class="evein"><img src="card/kin${d.kin}.jpg" alt="KIN ${d.kin} ${d.name} 波符圖卡" loading="lazy"><p>${esc(d.evening).replace(/(https:\/\/[^\s<]+)/g,'<a href="$1">$1</a>')}</p></div></section>`:''}
- <div class="pager"><button id="pv" ${i===0?'disabled':''}>← KIN ${i>0?D[i-1].kin:''}</button><button id="nx" ${i===D.length-1?'disabled':''}>KIN ${i<D.length-1?D[i+1].kin:''} →</button></div>
+ ${d.evening&&!eOpen(d)?`<section class="eve wait"><h3>🌙 晚上的分享</h3><p>今晚 20:30 揭曉，晚點再回來看看。</p></section>`:''}${d.evening&&eOpen(d)?`<section class="eve"><h3>🌙 晚上的分享</h3><div class="evein"><img src="card/kin${d.kin}.jpg" alt="KIN ${d.kin} ${d.name} 波符圖卡" loading="lazy"><p>${esc(d.evening).replace(/(https:\/\/[^\s<]+)/g,'<a href="$1">$1</a>')}</p></div></section>`:''}
+ <div class="pager"><button id="pv" ${i===0?'disabled':''}>← KIN ${i>0?D[i-1].kin:''}</button><button id="nx" ${i===D.length-1||!mOpen(D[i+1])?'disabled':''}>KIN ${i<D.length-1?D[i+1].kin:''} →</button></div>
  </div>`;
  strip.querySelectorAll('.tile').forEach(t=>t.setAttribute('aria-current',+t.dataset.k===k));
  const pv=document.getElementById('pv'),nx=document.getElementById('nx');
- if(i>0)pv.onclick=()=>go(D[i-1].kin);if(i<D.length-1)nx.onclick=()=>go(D[i+1].kin);
+ if(i>0)pv.onclick=()=>go(D[i-1].kin);if(i<D.length-1&&mOpen(D[i+1]))nx.onclick=()=>go(D[i+1].kin);
  if(push)try{history.replaceState(null,'','#kin'+k)}catch(e){location.hash='kin'+k}
 }
 function go(k){show(k,true);day.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})}
 strip.addEventListener('click',e=>{const t=e.target.closest('.tile');if(t)go(+t.dataset.k)});
 const fromHash=()=>{const m=location.hash.match(/kin(\d+)/);return m?+m[1]:null};
-const td=D.find(isToday);
-show(fromHash()||(td?td.kin:D[0].kin),false);
+show(fromHash()||latest().kin,false);
+let sig=D.map(d=>+mOpen(d)+''+(+eOpen(d))).join('');
+setInterval(()=>{const n=D.map(d=>+mOpen(d)+''+(+eOpen(d))).join('');if(n!==sig){sig=n;render();show(cur,false)}},60000);
 addEventListener('hashchange',()=>{const k=fromHash();if(k)show(k,false)});
 }
 </script>
