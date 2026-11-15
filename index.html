@@ -64,6 +64,11 @@ h1{font-family:"LXGW WenKai TC",serif;font-weight:700;font-size:clamp(34px,5vw,5
 .waitpic span{font-size:48px}
 .waitpic b{font-size:22px;font-weight:400;font-family:"LXGW WenKai TC",serif}
 .soon{color:var(--soft)}
+.talk{margin-top:22px;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.talk h4{margin:0 0 10px;font-family:"LXGW WenKai TC",serif;font-weight:400;font-size:18px}
+.tb{display:flex;flex-wrap:wrap;gap:8px}
+.tb a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:30px;border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none;font-size:15px;white-space:nowrap}
+.tb a:hover{border-color:var(--teal)}
 .tile:hover{transform:translateY(-2px)}
 .tile:focus-visible{outline-color:var(--teal)}
 .tile[aria-current=true]{outline-color:var(--red)}
@@ -174,7 +179,8 @@ function show(k,push,md){
   body=`<h2>${esc(ttl)}</h2><p class="kinline">KIN ${d.kin} ${d.name}｜藍風暴波第 ${i+1} 天・晚上</p>
   <div class="sec"><p>${esc(txt).replace(/(https:\/\/[^\s<]+)/g,'<a href="$1">$1</a>')}</p></div><div class="tags">${esc(tg)}</div>`;
  }
- day.innerHTML=`<div class="pic">${pic}</div><div>${meta}${tabs}${body}${pager}</div>`;
+ const talk=`<div class="talk"><h4>💬 想說說你的感受嗎？</h4><div class="tb"><a href="https://www.facebook.com/love.bluehand">到 Facebook 留言</a><a href="https://www.instagram.com/love.bluehand">到 Instagram 留言</a><a href="https://lin.ee/Ck2a8jP">LINE 私訊我</a></div></div>`;
+ day.innerHTML=`<div class="pic">${pic}</div><div>${meta}${tabs}${body}${talk}${pager}</div>`;
  strip.querySelectorAll('.tile').forEach(t=>t.setAttribute('aria-current',+t.dataset.k===k));
  day.querySelectorAll('[role=tab]').forEach(b=>b.onclick=()=>show(k,false,b.dataset.m));
  const pv=document.getElementById('pv'),nx=document.getElementById('nx');
