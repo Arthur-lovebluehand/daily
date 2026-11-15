@@ -143,7 +143,7 @@ function show(k,push){
  <div class="sec"><h4>☀️ 個人流日的提醒</h4><p class="personal">KIN 7 共鳴藍手走進今天：${esc(d.personal)}</p><p>${esc(d.personalR)}</p></div>
  <div class="sec"><h4>📝 小練習</h4><p>${esc(d.practice)}</p></div>
  <div class="tags">${esc(d.tags)}</div>
- ${d.evening?`<section class="eve"><h3>🌙 晚上的分享</h3><div class="evein"><img src="card/kin${d.kin}.jpg" alt="KIN ${d.kin} ${d.name} 波符圖卡" loading="lazy"><p>${esc(d.evening)}</p></div></section>`:''}
+ ${d.evening?`<section class="eve"><h3>🌙 晚上的分享</h3><div class="evein"><img src="card/kin${d.kin}.jpg" alt="KIN ${d.kin} ${d.name} 波符圖卡" loading="lazy"><p>${esc(d.evening).replace(/(https:\/\/[^\s<]+)/g,'<a href="$1">$1</a>')}</p></div></section>`:''}
  <div class="pager"><button id="pv" ${i===0?'disabled':''}>← KIN ${i>0?D[i-1].kin:''}</button><button id="nx" ${i===D.length-1?'disabled':''}>KIN ${i<D.length-1?D[i+1].kin:''} →</button></div>
  </div>`;
  strip.querySelectorAll('.tile').forEach(t=>t.setAttribute('aria-current',+t.dataset.k===k));
