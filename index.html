@@ -70,6 +70,11 @@ h2{font-family:"LXGW WenKai TC",serif;font-weight:700;font-size:clamp(28px,3.4vw
 .sec p{margin:0;white-space:pre-line}
 .personal{font-size:15px;color:var(--soft)}
 .tags{font-size:15px;color:var(--teal);margin-top:6px}
+.eve{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.eve h3{margin:0 0 12px;font-family:"LXGW WenKai TC",serif;font-size:20px}
+.evein{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.evein img{border-radius:14px;width:100%;max-width:520px}
+.evein p{white-space:pre-line;margin:0;font-size:16px}
 details{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 18px}
 summary{cursor:pointer;font-family:"LXGW WenKai TC",serif;font-size:18px}
 details p{white-space:pre-line;margin:10px 0 0;font-size:16px}
@@ -138,7 +143,7 @@ function show(k,push){
  <div class="sec"><h4>☀️ 個人流日的提醒</h4><p class="personal">KIN 7 共鳴藍手走進今天：${esc(d.personal)}</p><p>${esc(d.personalR)}</p></div>
  <div class="sec"><h4>📝 小練習</h4><p>${esc(d.practice)}</p></div>
  <div class="tags">${esc(d.tags)}</div>
- ${d.evening?`<details><summary>🌙 晚上的分享</summary><p>${esc(d.evening)}</p></details>`:''}
+ ${d.evening?`<section class="eve"><h3>🌙 晚上的分享</h3><div class="evein"><img src="card/kin${d.kin}.jpg" alt="KIN ${d.kin} ${d.name} 波符圖卡" loading="lazy"><p>${esc(d.evening)}</p></div></section>`:''}
  <div class="pager"><button id="pv" ${i===0?'disabled':''}>← KIN ${i>0?D[i-1].kin:''}</button><button id="nx" ${i===D.length-1?'disabled':''}>KIN ${i<D.length-1?D[i+1].kin:''} →</button></div>
  </div>`;
  strip.querySelectorAll('.tile').forEach(t=>t.setAttribute('aria-current',+t.dataset.k===k));
